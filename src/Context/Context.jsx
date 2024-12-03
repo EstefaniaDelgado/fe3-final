@@ -1,8 +1,11 @@
-import { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useContext, useState, useEffect, useReducer } from 'react';
 
 const GlobalStates = createContext();
 
 const Context = ({ children }) => {
+
+  // const [state, dispatch] = useReducer(reducer, initialState);
+
   // Estado para manejar el tema
   const [theme, setTheme] = useState(() => {
     // Leer el tema guardado en localStorage o usar "light" por defecto

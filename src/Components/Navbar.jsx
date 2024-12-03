@@ -1,23 +1,31 @@
 import { useEffect, useState } from 'react';
 import styles from './Navbar.module.css';
 import { Link, useLocation } from 'react-router-dom';
-import { useGlobalStates } from '../Context/Context';
+import { useStatesGlobal } from './utils/global.context';
+import { CHANGE_THEME } from './reducer/reducer';
 
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
 const Navbar = () => {
 
-  const{theme, toggleTheme}= useGlobalStates()
-
-
-  const { pathname } = useLocation();
+  const { state, dispatch } = useStatesGlobal();
   
+  const { pathname } = useLocation();
+
+  // Cambiar el tema y guardarlo en localStorage
+  const toggleTheme = () => {
+    const newTheme = state.theme === 'light' ? 'dark' : 'light';
+    dispatch({ type: CHANGE_THEME, payload: newTheme });
+    localStorage.setItem('theme', newTheme);
+  };
 
   return (
     <nav className={styles.navBar}>
-      <Link to={'/'} className={styles.links}><h2 className={styles.logo}>
-        <span style={{ color: 'red' }}>D</span>H-Odonto
-      </h2></Link>
+      <Link to={'/'} className={styles.links}>
+        <h2 className={styles.logo}>
+          <span style={{ color: 'red' }}>D</span>H-Odonto
+        </h2>
+      </Link>
 
       <div className={styles.containerBtnMenu}>
         {/* Aqui deberan agregar los liks correspondientes a las rutas definidas */}
@@ -26,19 +34,29 @@ const Navbar = () => {
             <Link
               to={'/home'}
               className={`${
-                pathname === '/home'
-              ? styles.activeLink: styles.links}`}
+                pathname === '/home' ? styles.activeLink : styles.links
+              }`}
             >
               Home
             </Link>
           </li>
           <li>
-            <Link to={'/contact'} className={`${pathname === '/contact' ? styles.activeLink : styles.links}`}>
+            <Link
+              to={'/contact'}
+              className={`${
+                pathname === '/contact' ? styles.activeLink : styles.links
+              }`}
+            >
               Contact
             </Link>
           </li>
           <li>
-            <Link to={'/fav'}  className={`${pathname === '/fav' ? styles.activeLink : styles.links}`}>
+            <Link
+              to={'/fav'}
+              className={`${
+                pathname === '/fav' ? styles.activeLink : styles.links
+              }`}
+            >
               Favs
             </Link>
           </li>
@@ -63,8 +81,11 @@ const Navbar = () => {
         </div>
 
         {/* Deberan implementar ademas la logica para cambiar de Theme con el button */}
-        <button className={styles.btnTheme} onClick={toggleTheme}>
-          {theme === 'dark' ? '🌞' : '🌜'}
+        <button
+          className={styles.btnTheme}
+          onClick={toggleTheme}
+        >
+          {state.theme === 'dark' ? '🌞' : '🌜'}
         </button>
       </div>
     </nav>
