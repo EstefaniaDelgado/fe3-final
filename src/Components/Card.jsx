@@ -1,6 +1,6 @@
 import styles from './Card.module.css';
 import Doctor from '../../public/images/doctor.jpg';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Card = ({ name, username, id }) => {
   const navigate = useNavigate();
@@ -9,6 +9,8 @@ const Card = ({ name, username, id }) => {
     navigate(`/dentista/${id}`);
   };
 
+  const { pathname } = useLocation();
+  
   return (
     <div className={styles.card}>
       {/* En cada card deberan mostrar en name - username y el id */}
@@ -23,9 +25,13 @@ const Card = ({ name, username, id }) => {
         <h3>{id}</h3>
         <h3>{name}</h3>
         <h4>{username}</h4>
-        <button onClick={addFav} className={styles.btnDetail}>
-          Ver detalle
-        </button>
+        {pathname === '/' ? (
+          <button onClick={addFav} className={styles.btnDetail}>
+            Ver detalle
+          </button>
+        ) : (
+          ''
+        )}
       </article>
     </div>
   );
