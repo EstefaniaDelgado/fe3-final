@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useStatesGlobal } from '../Components/utils/global.context';
 import Card from '../Components/Card';
+import { GET_DETAIL } from '../Components/reducer/reducer';
 
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
@@ -13,10 +14,14 @@ const Detail = () => {
     fetchUsers,
     state: { detail },
     isLoading,
+    dispatch,
   } = useStatesGlobal();
 
   useEffect(() => {
     fetchUsers(id);
+    return () => {
+      dispatch({ type: GET_DETAIL, payload: {} });
+    };
   }, []);
 
   if (isLoading) {
