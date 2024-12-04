@@ -2,7 +2,6 @@
     box-sizing: border-box;
     width: 190px;
     margin: 1rem auto;
-    height: 254px;
     background: rgba(217, 217, 217, 0.58);
     border: 1px solid white;
     box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.22);
@@ -39,4 +38,22 @@
     width: 100%;
     border-top-left-radius: 17px;
     border-top-right-radius: 17px;
+  }
+
+  .containerInfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 0;
+  }
+
+  .btnDetail{
+    padding: 5px 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: bisque;
+    letter-spacing: 2px;
+    cursor: pointer;
   }
