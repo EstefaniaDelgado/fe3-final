@@ -32,9 +32,9 @@ const Navbar = () => {
         <ul className={styles.containerItems}>
           <li>
             <Link
-              to={'/home'}
+              to={'/'}
               className={`${
-                pathname === '/home' ? styles.activeLink : styles.links
+                pathname === '/' ? styles.activeLink : styles.links
               }`}
             >
               Home
