@@ -1,8 +1,14 @@
 import styles from './Card.module.css';
 import Doctor from '../../public/images/doctor.jpg';
 import { useLocation, useNavigate } from 'react-router-dom';
+import HeartFilled from '../../public/images/heartFilled.png'
+import HeartUnfilled from '../../public/images/heartUnfilled.png'
+import { useState } from 'react';
 
 const Card = ({ name, username, id }) => {
+
+const[isLiked, setIsLiked]=useState(false)
+
   const navigate = useNavigate();
   const addFav = () => {
     // Aqui iria la logica para agregar la Card en el localStorage
@@ -19,7 +25,8 @@ const Card = ({ name, username, id }) => {
 
       {/* Ademas deberan integrar la logica para guardar cada Card en el localStorage */}
       <figure className={styles.containerImage}>
-        <img src={Doctor} alt="photo doctor" />
+        <img src={Doctor} alt="photo doctor" className={styles.imageDoc} />
+        <img src={!isLiked? HeartUnfilled : HeartFilled} alt="heart-icon" className={styles.heartIcon} onClick={()=>setIsLiked(!isLiked)}/>
       </figure>
       <article className={styles.containerInfo}>
         <h3>{id}</h3>

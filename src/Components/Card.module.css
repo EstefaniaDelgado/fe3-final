@@ -28,16 +28,27 @@
   }
 
   .containerImage{
+    position: relative;
     width: 100%;
     border-top-left-radius: 17px;
     border-top-right-radius: 17px;
+    background-color: green;
 
   }
 
-  .containerImage img{
+  .imageDoc{
+    display: block;
     width: 100%;
     border-top-left-radius: 17px;
     border-top-right-radius: 17px;
+  }
+
+  .heartIcon{
+    position: absolute;
+    width: 30px;
+    top: 5px;
+    right: 8px;
+
   }
 
   .containerInfo{
