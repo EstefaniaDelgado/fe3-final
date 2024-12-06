@@ -10,11 +10,13 @@ import reducer, {
   GET_USERS,
   LOADING_USERS,
 } from '../reducer/reducer';
+import { fav } from './constants';
 
 export const initialState = {
   theme: localStorage.getItem('theme') || 'light',
   data: [],
-  detail:{}
+  detail: {},
+  favs: JSON.parse(localStorage.getItem(fav)) || [],
 };
 
 const ContextGlobal = createContext();
@@ -31,18 +33,19 @@ export const ContextProvider = ({ children }) => {
     document.documentElement.setAttribute('data-theme', state.theme);
   }, [state.theme]);
 
+
   //Llamado a la API
   const fetchUsers = async (params) => {
-    console.log(params);
+    // console.log(params);
     try {
       const api = await fetch(
         `https://jsonplaceholder.typicode.com/users/${params ? params : ''}`
       );
       const response = await api.json();
-      
+
       if (params) {
         dispatch({ type: GET_DETAIL, payload: response });
-      }else{
+      } else {
         dispatch({ type: GET_USERS, payload: response });
       }
     } catch (error) {

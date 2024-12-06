@@ -18,22 +18,20 @@
     color: black;
   }
   
-  .card:hover {
+  /* .card:hover {
     border: 1px solid black;
     transform: scale(1.05);
   }
   
   .card:active {
     transform: scale(0.95) rotateZ(1.7deg);
-  }
+  } */
 
   .containerImage{
     position: relative;
     width: 100%;
     border-top-left-radius: 17px;
     border-top-right-radius: 17px;
-    background-color: green;
-
   }
 
   .imageDoc{
