@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useStatesGlobal } from '../Components/utils/global.context';
 import Card from '../Components/Card';
 import { GET_DETAIL } from '../Components/reducer/reducer';
+import styles from './Detail.module.css'
 
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
@@ -26,7 +27,7 @@ const Detail = () => {
   }, []);
 
   if (isLoading) {
-    return <p>Cargando Detalle....</p>;
+    return <p className={styles.loadingMsg}>Cargando Detalle....</p>;
   }
   if (error) {
     return <p className={styles.loadingMsg}>Ha ocurrido un error 🤔</p>;

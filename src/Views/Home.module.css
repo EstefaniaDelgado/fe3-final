@@ -9,6 +9,7 @@
 .loadingMsg{
     text-align: center;
     padding: 3rem;
+    color: var(--text-color);
 }
 
 @media (min-width:768px){
