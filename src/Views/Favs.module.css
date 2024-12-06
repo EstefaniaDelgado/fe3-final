@@ -1,0 +1,29 @@
+
+
+.cardGrid{
+    display: grid;
+    margin: 40px auto;
+    max-width: 1100px;
+}
+
+.tittle{
+    text-align: center;
+    margin-top: 10px;
+}
+
+.loadingMsg{
+    text-align: center;
+    padding: 3rem;
+}
+
+@media (min-width:768px){
+    .cardGrid{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width:1024px){
+    .cardGrid{
+        grid-template-columns: repeat(4, 1fr);
+    }
+}

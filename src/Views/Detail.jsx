@@ -15,6 +15,7 @@ const Detail = () => {
     state: { detail },
     isLoading,
     dispatch,
+    error
   } = useStatesGlobal();
 
   useEffect(() => {
@@ -27,14 +28,17 @@ const Detail = () => {
   if (isLoading) {
     return <p>Cargando Detalle....</p>;
   }
+  if (error) {
+    return <p className={styles.loadingMsg}>Ha ocurrido un error 🤔</p>;
+  }
 
   return (
-    <>
-      <h1>Detail Dentist {id} </h1>
+    <div style={{height:'100%',display:'flex', flexDirection:'column',justifyContent:'center', alignItems:'center', margin:'15px 0'}}>
+      <h1 style={{textAlign:'center'}}>Detail Dentist {id} </h1>
       {/* aqui deberan renderizar la informacion en detalle de un user en especifico */}
       {/* Deberan mostrar el name - email - phone - website por cada user en especifico */}
       <Card name={detail.name} id={detail.id} username={detail.username} />
-    </>
+    </div>
   );
 };
 
