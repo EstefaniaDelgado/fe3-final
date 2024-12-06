@@ -13,6 +13,7 @@
   --primary-color: #6200ea;
   --color-links-hover:rgb(218, 34, 34);
   --color-background-navbar: rgb(218, 218, 225);
+  --boder-form:#000000;
 }
 
 /* Tema oscuro */
@@ -21,6 +22,7 @@
   --text-color: #ffffff;
   --primary-color: #bb86fc;
   --color-background-navbar: #121212;
+  --boder-form:#fff;
 }
 
 
