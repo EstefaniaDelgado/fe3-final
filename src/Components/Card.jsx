@@ -52,7 +52,6 @@ const Card = ({ name, username, id, email, phone, website }) => {
         />
       </figure>
       <article className={styles.containerInfo}>
-        <h3>{id}</h3>
         <h3>{name}</h3>
         <h4>{username}</h4>
         <h4>{email}</h4>
