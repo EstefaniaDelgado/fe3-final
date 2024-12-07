@@ -18,6 +18,7 @@ const Detail = () => {
     dispatch,
     error
   } = useStatesGlobal();
+  console.log(detail)
 
   useEffect(() => {
     fetchUsers(id);
@@ -38,7 +39,7 @@ const Detail = () => {
       <h1 style={{textAlign:'center'}}>Detail Dentist {id} </h1>
       {/* aqui deberan renderizar la informacion en detalle de un user en especifico */}
       {/* Deberan mostrar el name - email - phone - website por cada user en especifico */}
-      <Card name={detail.name} id={detail.id} username={detail.username} />
+      <Card name={detail.name} id={detail.id} email={detail.email} phone={detail.phone} website={detail.website}/>
     </div>
   );
 };

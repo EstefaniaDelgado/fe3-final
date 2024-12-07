@@ -66,3 +66,7 @@
     letter-spacing: 2px;
     cursor: pointer;
   }
+
+  .btnDetail:hover{
+    background-color: #fff;
+  }

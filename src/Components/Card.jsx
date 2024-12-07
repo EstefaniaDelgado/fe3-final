@@ -7,7 +7,7 @@ import { useState,useEffect } from 'react';
 import { useStatesGlobal } from './utils/global.context';
 import { ADD_FAV, DELETE_FAV } from './reducer/reducer';
 
-const Card = ({ name, username, id }) => {
+const Card = ({ name, username, id, email, phone, website }) => {
 
   const [isLiked, setIsLiked] = useState(false);
 
@@ -55,6 +55,9 @@ const Card = ({ name, username, id }) => {
         <h3>{id}</h3>
         <h3>{name}</h3>
         <h4>{username}</h4>
+        <h4>{email}</h4>
+        <h4>{phone}</h4>
+        <h4>{website}</h4>
         {pathname === '/' ? (
           <button
             onClick={() => navigate(`/dentista/${id}`)}
