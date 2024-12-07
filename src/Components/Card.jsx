@@ -58,7 +58,7 @@ const Card = ({ name, username, id, email, phone, website }) => {
         <h4>{email}</h4>
         <h4>{phone}</h4>
         <h4>{website}</h4>
-        {pathname === '/' ? (
+        {pathname === '/' || pathname === '/fav' ? (
           <button
             onClick={() => navigate(`/dentista/${id}`)}
             className={styles.btnDetail}
